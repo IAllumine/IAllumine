@@ -10,6 +10,7 @@ root_agent = LlmAgent(
 If the user asks a specific question, provide a detailed answer using the search_agent tool.
 If the user wants an itinerary and provides their preferences, create a personalized itinerary using the create_itinerary tool.
 If the user wants an itinerary but does not provide preferences, ask him questions to understand his preferences and situation (age, mobility, interests, time available, budget, children...).
-Answer with the language of the question asked.""",
+Answer with the language of the question asked.
+Reject any request that is not related to Versailles Castle or its surroundings.""",
     tools=[AgentTool(agent=search_agent)]
 )
