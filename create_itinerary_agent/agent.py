@@ -4,7 +4,7 @@ from weather_affluence_agent.agent import root_agent as weather_agent
 from service_agent.agent import root_agent as service_agent
 
 # Parallel agent that runs several research agents concurrently
-ResearchParallelAgent = ParallelAgent(
+research_parallel_agent = ParallelAgent(
      name="research_parallel_agent",
      sub_agents=[event_agent, weather_agent, service_agent],
      description=(
@@ -15,18 +15,18 @@ ResearchParallelAgent = ParallelAgent(
 )
 
 # Synthesis agent backed by a LLM that organizes and summarizes results
-SynthesisAgent = LlmAgent(
+synthesis_agent = LlmAgent(
      name="synthesis_agent",
-     model="gemini-2.5-flash",
+     model="gemini-2.5-flash-lite",
      instruction=(
           "You are an AI Assistant responsible for combining research findings into a structured report.")
 )
 
 # Sequential pipeline: first parallel collection, then synthesis
-ResearchSynthesisPipeline = SequentialAgent(
-     name="research_synthesis_pipeline",
+create_itinerary_agent = SequentialAgent(
+     name="create_itinerary_agent",
      # Run parallel collection first, then the synthesis step
-     sub_agents=[ResearchParallelAgent, SynthesisAgent],
+     sub_agents=[research_parallel_agent, synthesis_agent],
      description=(
           "Research and synthesis pipeline: collects data in parallel via multiple agents, then "
           "generates a consolidated, structured report to assist visit planning."
@@ -34,4 +34,4 @@ ResearchSynthesisPipeline = SequentialAgent(
 )
 
 # Export root for compatibility with the project's pattern
-root_agent = ResearchSynthesisPipeline
+root_agent = create_itinerary_agent
