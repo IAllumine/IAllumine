@@ -1,6 +1,8 @@
 import requests
 from bs4 import BeautifulSoup
-from datetime import datetime
+from datetime import datetime, timedelta
+from typing import Optional
+import calendar
 from multiprocessing.pool import ThreadPool
 
 def extract_events(soup):
@@ -151,3 +153,57 @@ def get_events_of_day(date: str) -> dict:
     except Exception as e:
         print(f"❌ Erreur lors de l'extraction: {e}")
         return None
+    
+def get_events_of_month(year: Optional[int] = None, month: Optional[int] = None) -> dict:
+    """
+    Retrieve events for every day of a given month.
+    Args:
+        year (int): Year, e.g. 2025, default to current year if None
+        month (int): Month number 1-12, default to current month if None
+    Returns:
+        dict: {
+            "year": year,
+            "month": month,
+            "days": [ {daily result or None}, ... ],
+            "summary": {
+                "total_days_with_events": int,
+                "total_events": int,
+                "total_spectacles": int
+            }
+        }
+    """
+    if year is None:
+        year = datetime.now().year
+
+    if month is None:
+        month = datetime.now().month
+
+    _, ndays = calendar.monthrange(year, month)
+    dates = [datetime(year, month, day).date().isoformat() for day in range(1, ndays + 1)]
+
+    results = []
+    total_events = 0
+    total_spectacles = 0
+
+    max_workers = min(8, len(dates))
+    with ThreadPool(processes=max_workers) as pool:
+        asyncs = [pool.apply_async(get_events_of_day, (d,)) for d in dates]
+        for a in asyncs:
+            res = a.get()
+            results.append(res)
+            if res:
+                total_events += res.get("summary", {}).get("total_events", 0)
+                total_spectacles += res.get("summary", {}).get("total_spectacles", 0)
+
+    days_with_events = sum(1 for r in results if r and (r.get("summary", {}).get("total_events", 0) > 0 or r.get("summary", {}).get("total_spectacles", 0) > 0))
+
+    return {
+        "year": year,
+        "month": month,
+        "days": results,
+        "summary": {
+            "total_days_with_events": days_with_events,
+            "total_events": total_events,
+            "total_spectacles": total_spectacles
+        }
+    }
