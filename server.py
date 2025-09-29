@@ -53,7 +53,7 @@ async def query_agent(request: requestBody):
                 # Assuming text response in the first part
                 final_response = event.content.parts[0].text
     print(f"Agent response: {final_response}")
-    return {"response": final_response}
+    return {"answer": final_response}
 
 if __name__ == "__main__":
     # Use the PORT environment variable provided by Cloud Run, defaulting to 8080
