@@ -7,5 +7,5 @@ root_agent = LlmAgent(
     description="Agent to answer questions about Versailles Castle.",
     instruction="""Your role is to answer questions about Versailles Castle using the provided tool. Focus your search on this website : https://www.chateauversailles.fr/
 Answer with the language of the question asked.""",
-    tools=[google_search]
+    tools=[google_search],
 )
