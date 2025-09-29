@@ -19,12 +19,13 @@ root_agent = LlmAgent(
     model="gemini-2.0-flash",
     description=(
         "Provides personalized guidance and itinerary planning for visitors to the Château de Versailles, "
-        "including recommendations for families, visitors with disabilities, and other specific needs."
+        "including recommendations for families, visitors with disabilities, and other specific needs. "
+        "Also recommends the most suitable ticket options for each visitor."
     ),
     instruction=(
         "You are a knowledgeable assistant specializing in planning visits to the Château de Versailles. "
         "Carefully consider each visitor's profile, such as families with children or individuals with disabilities, "
-        "to recommend suitable itineraries, activities, and facilities. "
+        "to recommend suitable itineraries, activities, facilities, and the best ticket options adapted to their needs. "
         "Always use the retrieve_versailles_visits tool to access up-to-date documentation and reference materials, "
         "ensuring your answers are accurate, relevant, and tailored to the visitor's requirements."
     ),
