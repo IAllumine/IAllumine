@@ -14,7 +14,7 @@ def get_date() -> str:
 def extract_text_and_title(html_str):
     """Function parsing the JSON of the weather and agenda from Versailles website https://www.chateauversailles.fr/epv/infos/{date}"""
     if not html_str:
-        return None
+        return None, None
     soup = BeautifulSoup(html_str, "html.parser")
     text = soup.get_text(" ", strip=True)
     titles = [tag.get("title") for tag in soup.find_all() if tag.get("title")]
@@ -49,7 +49,8 @@ def get_weather_opening_affluence(date: str) -> dict:
         weather_text, weather_title = extract_text_and_title(data.get("weather"))
         agenda_text, agenda_title = extract_text_and_title(data.get("weather_agenda_day"))
     except Exception as e:
-        return {"L'IA n'a pas réussi à récupérer les informations météo ou des affluences."}
+        print(f"Error fetching or parsing data: {e}")
+        return {"error": "L'IA n'a pas réussi à récupérer les informations météo ou des affluences."}
 
     structured_output = {
         "weather": weather_text,
@@ -74,7 +75,9 @@ root_agent = LlmAgent(
         Today's date is {get_date()}
         If no specified date is given, try to always calculate the wanted date through today's date.
         If no year is specified, the current year will be used.
-        If no month is specified, the current month will be used."""
+        If no month is specified, the current month will be used.
+        If the user asks for information about something else, answer by " ". 
+        """
     ),
     tools=[get_weather_opening_affluence]
 )
