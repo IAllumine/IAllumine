@@ -1,6 +1,6 @@
 from google.adk.sessions import InMemorySessionService
 from google.adk.runners import Runner
-from orchestrator.agent import root_agent as orchestrator_agent
+from ochestrator_api.agent import root_agent as orchestrator_agent
 from google.genai import types # For creating message Content/Parts
 from fastapi import FastAPI
 from pydantic import BaseModel, Field
