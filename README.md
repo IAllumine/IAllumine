@@ -1,5 +1,7 @@
 # IAllumine — README
 
+![Logo](clefs_versailles_hackathon.jpg)
+
 Notre solution intègre un système multi-agents afin de produire les itinéraires les plus adaptés aux demandes des utilsateurs. 
 
 # Installation
@@ -30,4 +32,13 @@ Le chatbot est constitué d'un système multiagent avec un orchestrateur princip
 - Un agent Search Agent chargé de répondre aux demandes non liés aux itinéraires.
 
 L'agent Itinerary utilise plusieurs agents indépendants chacun spécialisé dans une tâche spécifique lié au chateau de Versailles comme par exemple les évènements, les services ou la météo.
-Ces agents indépedants sont appelés en parallèle afin d'optimiser le temps de traitement et l'ensemble des résultats est donné à un agent Synthétiseur chargé de créer l'itinéraire. Enfin, nous intégrons un agent Tips qui rajoute les conseils des données dans le PDF éponyme fourni lors du Hackathon pour produire le résultat final à l'utilsateur.
+Ces agents indépedants sont appelés en parallèle afin d'optimiser le temps de traitement et l'ensemble des résultats est donné à un agent Synthétiseur chargé de créer l'itinéraire. Enfin, nous intégrons un agent Tips qui rajoute les conseils des données dans le PDF éponyme fourni lors du Hackathon pour produire le résultat final donné à l'utilsateur.
+
+![Logo](schema_iallumin.png)
+
+# Equipe 
+- Armad DEBESSE
+- Delon UNG
+- Hatem YOUNES
+- Léa TOPRAK
+- Rémi DA SILVA
