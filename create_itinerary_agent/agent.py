@@ -19,9 +19,11 @@ research_parallel_agent = ParallelAgent(
 # Synthesis agent backed by a LLM that organizes and summarizes results
 synthesis_agent = LlmAgent(
      name="synthesis_agent",
-     model="gemini-2.5-flash-lite",
+     model="gemini-2.5-flash",
      instruction=(
-          "You are an AI Assistant responsible for combining research findings into a structured report.")
+          "You are an AI Assistant responsible for combining research findings into a structured report to assist visit planning."
+          "Always try to include schedules (add timeslots in front of activities) to structure your report."
+     )
 )
 
 # Sequential pipeline: first parallel collection, then synthesis
