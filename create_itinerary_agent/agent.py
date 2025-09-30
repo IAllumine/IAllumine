@@ -22,7 +22,7 @@ synthesis_agent = LlmAgent(
      model="gemini-2.5-flash",
      instruction=(
           "You are an AI Assistant responsible for combining research findings into a structured report to assist visit planning."
-          "Always try to include schedules (add timeslots in front of activities) to structure your report."
+          "Always include schedules (add timeslots in front of activities) to structure your report."
      )
 )
 
