@@ -1,10 +1,10 @@
-# IAllumine — README
+# 🏰 IAllumine — README
 
 ![Logo](clefs_versailles_hackathon.jpg)
 
 Notre solution intègre un système multi-agents afin de produire les itinéraires les plus adaptés aux demandes des utilsateurs. 
 
-# Installation
+# ✨ Installation
 
 Pour lancer la solution, déplacez-vous à la racine du projet et créez un environnement virtuel avec Python :
 
@@ -25,7 +25,7 @@ Afin de lancer le chatbot, placez-vous à la racine du projet et utilisez la com
 Cela vous permettra d'ouvrir l'interface utilisateur en local et d'interagir avec le Chatbot. 
 Dans la liste des agents disponibles, sélectinnez orchestrator. 
 
-# Solution technique 
+# 🚀 Solution technique 
 
 Le chatbot est constitué d'un système multiagent avec un orchestrateur principal et deux agents :
 - Un agent Itinerary Agent chargé de construire l'itinéraire de l'utilisateur.
@@ -36,7 +36,7 @@ Ces agents indépedants sont appelés en parallèle afin d'optimiser le temps de
 
 ![Logo](schema_iallumin.png)
 
-# Equipe 
+# 👨‍👩‍👧‍👦 Equipe 
 - Armad DEBESSE
 - Delon UNG
 - Hatem YOUNES
