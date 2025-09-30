@@ -24,4 +24,5 @@ root_agent = LlmAgent(
         "Use the retrieve_versailles_services tool to find relevant information and provide accurate answers to user queries."
     ),
     tools=[ask_vertex_retrieval],
+    output_key="services"
 )

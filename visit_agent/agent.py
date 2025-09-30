@@ -31,4 +31,5 @@ root_agent = LlmAgent(
         "Do not forget to add links to the official website for more information."
     ),
     tools=[ask_vertex_retrieval],
+    output_key="visits"
 )

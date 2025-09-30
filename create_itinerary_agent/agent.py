@@ -21,9 +21,17 @@ synthesis_agent = LlmAgent(
      name="synthesis_agent",
      model="gemini-2.5-flash",
      instruction=(
-          "You are an AI Assistant responsible for combining research findings into a structured report to assist visit planning."
-          "Always try to include schedules (add timeslots in front of activities) to structure your report."
-     )
+          "You are an AI Assistant that create a customized itinerary for a visitor."
+          "Combine the following informations:\n\n"
+          "Visits information: {visits} \n"
+          "Events information: {events} \n"
+          "Weather and affluence information: {weather_time} \n"
+          "Services information: {services} \n\n"
+          "Summarize these informations to create a personalized itinerary. You must avoid informations redundancy and keep only relevant information."
+          "Create a short structured report in markdown format. Be concise and use bullet points where appropriate."
+          "Structure the report with around 3 sections. Always include a section with schedules (add timeslots in front of activities)."
+     ),
+     output_key="itinerary_report",
 )
 
 # Sequential pipeline: first parallel collection, then synthesis

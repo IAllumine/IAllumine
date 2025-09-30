@@ -79,5 +79,6 @@ root_agent = LlmAgent(
         If the user asks for information about something else, answer by " ". 
         """
     ),
-    tools=[get_weather_opening_affluence]
+    tools=[get_weather_opening_affluence],
+    output_key="weather_time"
 )
