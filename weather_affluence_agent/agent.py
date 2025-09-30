@@ -66,17 +66,23 @@ def get_weather_opening_affluence(date: str) -> dict:
 
 root_agent = LlmAgent(
     name="weather_time_agent",
-    model="gemini-2.5-flash",
+    model="gemini-2.5-pro",
     description=(
         "Agent giving informations about the weather, opening times and affluence in Versailles for a specific date"
     ),
     instruction=(
         f"""You are a helpful agent who can give information about the weather, opening times and affluence in Versailles for a specific date. The date will be given as argument to the tool get_weather_opening_affluence in the format YYYY-MM-DD. 
         Today's date is {get_date()}
-        If no specified date is given, try to always calculate the wanted date through today's date.
+        If no specified date is given, always calculate the wanted date based on the user's request through today's date.
         If no year is specified, the current year will be used.
         If no month is specified, the current month will be used.
-        If the user asks for information about something else, answer by " ". 
+        Otherwise, you must use the nearest future date that you can think about corresponding to the user's request.
+        If push comes to shove, you can use one of next week date for the tool get_weather_opening_affluence.
+        Answer only with the information you got from the tool get_weather_opening_affluence.
+        If you have many date choices, choose a random date among the choices.
+
+        IMPORTANT : 
+        You MUST ALWAYS give a date to the tool get_weather_opening_affluence and use it. 
         """
     ),
     tools=[get_weather_opening_affluence]
