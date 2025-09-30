@@ -2,13 +2,13 @@
 
 ![Logo](clefs_versailles_hackathon.jpg)
 
-Notre solution intègre un système multi-agents afin de produire les itinéraires les plus adaptés aux demandes des utilsateurs. 
+Notre solution intègre un système multi-agents afin de produire les itinéraires du château de Versailles les plus adaptés aux demandes des utilsateurs. 
 
 # ✨ Installation
 
 Pour lancer la solution, déplacez-vous à la racine du projet et créez un environnement virtuel avec Python :
 
-`python -m venv virtual_env`
+`python -m venv .venv`
 
 Activez l'environnement virtuel en vous plaçant au même endroit de création du venv : 
 
