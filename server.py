@@ -18,7 +18,7 @@ class requestBody(BaseModel):
 ## INITIALIZE FASTAPI APP AND RUNNER
 app: FastAPI = get_fast_api_app(
     agents_dir=os.path.dirname(os.path.abspath(__file__)),
-    web=False,
+    web=True,
 )
 
 session_service = InMemorySessionService()
