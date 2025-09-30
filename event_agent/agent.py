@@ -29,5 +29,6 @@ root_agent = LlmAgent(
       3. Only return events and spectacles that match the user's specific interest
       4. If no events match the keywords, clearly state that no events were found for that specific topic.
     """,
-    tools=[FunctionTool(get_events_of_day), FunctionTool(get_events_of_month)]
+    tools=[FunctionTool(get_events_of_day), FunctionTool(get_events_of_month)],
+    output_key="events"
 )

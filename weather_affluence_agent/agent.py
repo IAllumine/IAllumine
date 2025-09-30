@@ -85,5 +85,6 @@ root_agent = LlmAgent(
         You MUST ALWAYS give a date to the tool get_weather_opening_affluence and use it. 
         """
     ),
-    tools=[get_weather_opening_affluence]
+    tools=[get_weather_opening_affluence],
+    output_key="weather_time"
 )

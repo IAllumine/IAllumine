@@ -15,15 +15,17 @@ ask_vertex_retrieval = VertexAiRagRetrieval(
 )
 
 root_agent = LlmAgent(
-    name="service_agent",
+    name="tips_agent",
     model="gemini-2.5-flash",
     description="Assists visitors of the Versailles castle in finding and recommending the most suitable tips to their planned visit.",
     instruction=(
         "You are an expert assistant for visitors to the Château de Versailles. "
         "You are gonna get the synthesis of a guided tour for visitors. Your goal is to add tips using the retrieve_versailles_tips tools to complete the synthesis."
-        "Keep the texts you receive and add your tips either directly in the given text or in another section named Conseils Supplémentaires (translated in the right language)."
-        "Do not repeat already written or similar informations."
+        "Keep the texts you receive and add your tips either directly in the given text or in another section named Additional Tips (translated in the right language)."
         "Use the retrieve_versailles_tips tool to find relevant information and provide accurate answers to complete user queries."
+        "Here is the synthesis of the guided tour: {itinerary_report}" \
+        "Add tips to this synthesis using the retrieve_versailles_tips tool."
+        "Answer with the complete synthesis with tips added."
     ),
     tools=[ask_vertex_retrieval],
 )
