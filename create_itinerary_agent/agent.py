@@ -32,6 +32,7 @@ create_itinerary_agent = SequentialAgent(
      description=(
           "Research and synthesis pipeline: collects data in parallel via multiple agents, then "
           "generates a consolidated, structured report to assist visit planning."
+          "Try to use schedules to structure your response."
      ),
 )
 
