@@ -27,7 +27,9 @@ Dans la liste des agents disponibles, sélectinnez orchestrator.
 
 # 🚀 Solution technique 
 
-Le chatbot est constitué d'un système multiagent avec un orchestrateur principal et deux agents :
+Notre solution se base sur l'Agent Development Kit de Google permettant de créer des systèmes multiagents.
+
+Le chatbot est constitué d'un système multiagents avec un orchestrateur principal et deux agents :
 - Un agent Itinerary Agent chargé de construire l'itinéraire de l'utilisateur.
 - Un agent Search Agent chargé de répondre aux demandes non liés aux itinéraires.
 
