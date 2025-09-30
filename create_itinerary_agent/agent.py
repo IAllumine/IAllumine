@@ -29,10 +29,7 @@ create_itinerary_agent = SequentialAgent(
      name="create_itinerary_agent",
      # Run parallel collection first, then the synthesis step
      sub_agents=[research_parallel_agent, synthesis_agent, tips_agent],
-     description=(
-          "Research and synthesis pipeline: collects data in parallel via multiple agents, then "
-          "generates a consolidated, structured report to assist visit planning."
-     ),
+     description="Agent to create a personalized itinerary for a visit to the Palace of Versailles.",
 )
 
 # Export root for compatibility with the project's pattern
