@@ -30,6 +30,8 @@ GOOGLE_CLOUD_PROJECT=[YOUR_PROJECT]
 GOOGLE_CLOUD_LOCATION=[YOUR_LOCATION]
 ```
 
+Vérifiez alors que les agents utilisant du RAG sont configurés correctement avec les bons documents.
+
 Afin de lancer le chatbot, placez-vous à la racine du projet et utilisez la commande 
 
 `adk web` 
