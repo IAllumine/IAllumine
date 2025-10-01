@@ -18,6 +18,18 @@ Installez les dépendances du `requirements.txt`
 
 `pip install -r requirements.txt`
 
+L'idéal est de posséder un projet Google Cloud Project et de s'authentifier via la CLI gcloud pour que l'application puisse récupérer les credentials via la commande : 
+
+`gcloud auth application-default login`
+ 
+Créez un fichier `.env` à la racine du projet contenant les variables d'environnement :
+
+```
+GOOGLE_GENAI_USE_VERTEXAI=TRUE
+GOOGLE_CLOUD_PROJECT=[YOUR_PROJECT]
+GOOGLE_CLOUD_LOCATION=[YOUR_LOCATION]
+```
+
 Afin de lancer le chatbot, placez-vous à la racine du projet et utilisez la commande 
 
 `adk web` 
